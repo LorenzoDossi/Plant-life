@@ -1,0 +1,129 @@
+@font-face {
+    font-family: "IBM Plex Mono";
+    src: url("../assets/ibm-plex-mono.woff"), url("../assets/ibm-plex-mono.woff2");
+}
+
+@font-face {
+    font-family: "Young Serif";
+    src: url("../assets/youngserif.woff"), url("../assets/youngserif.woff2");
+}
+
+$text-color: #2a2a2a;
+$green: #00b98d;
+
+body {
+    font-family: "IBM Plex Mono", sans-serif;
+    color: $text-color;
+    overflow-x: hidden; 
+}
+
+nav {
+    font-family: "Young Serif", sans-serif;
+    font-size: 24px;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 240px;
+    min-height: 100vh;
+    background-color: $green;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    a {
+        color: #fff;
+        text-decoration: none;
+        margin: 5px 32px;
+    }
+
+}
+
+
+main {
+    position: relative;
+    z-index: 1;
+    background-color: #fff;
+    min-height: 100vh;
+    transition: transform .5s;
+
+    &.open {
+        transform: translate(240px, 0);
+    }
+
+    a.toggle-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding: 24px;
+        text-decoration: none;
+        color: $text-color; 
+
+        & img {
+            margin: 0 5px 0 0;
+            vertical-align: middle;
+        }
+    }
+
+    a.button {
+        display: inline-block;
+        background-color: $green;
+        color: white;
+        text-decoration: none;
+        padding: 20px 30px;
+        border-radius: 3px;
+    }
+
+    section {
+        display: flex;
+        align-items: center;
+        justify-content: center;    
+        height: 100vh;
+
+        & div {
+            width: 350px;
+
+            &.content {
+                margin: 0 0 0 60px;
+            }
+        }
+
+        div.slides {
+            height: 475px;
+            position: relative;
+
+            &:hover img{
+                box-shadow: 0 0 10px rgba(0,0,0,.2)
+            }
+        }
+    
+        div.slides img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: transform .5s, box-shadow .5s;
+        }
+    }
+
+}
+
+h1 {
+    font-family: "Young Serif";
+    font-size: 48px;
+    margin: 0;
+    line-height: 1.2;
+}
+
+p {
+    margin: 20px 0;
+    line-height: 1.6em;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
+}
